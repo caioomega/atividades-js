@@ -1,57 +1,61 @@
 // Atividade 1 - mudar cor do título
-const titulo = document.getElementById('titulo');
-const botaoAzul = document.getElementById('azul');
-const botaoVermelho = document.getElementById('vermelho');
+var titulo = document.querySelector('#titulo');
+var azul = document.querySelector('#azul');
+var vermelho = document.querySelector('#vermelho');
 
-botaoAzul.addEventListener('click', () => {
+azul.addEventListener('click', function() {
     titulo.style.color = 'blue';
 });
 
-botaoVermelho.addEventListener('click', () => {
+vermelho.addEventListener('click', function() {
     titulo.style.color = 'red';
 });
 
 // Atividade 2 - mostrar / esconder mensagem
-const botaoToggle = document.getElementById('botaoToggle');
-const mensagem = document.getElementById('mensagem');
+var botaoToggle = document.querySelector('#botaoToggle');
+var mensagem = document.querySelector('#mensagem');
 
-botaoToggle.addEventListener('click', () => {
-    mensagem.classList.toggle('oculto');
+botaoToggle.addEventListener('click', function() {
+    if (mensagem.style.display === 'none') {
+        mensagem.style.display = '';
+    } else {
+        mensagem.style.display = 'none';
+    }
 });
 
 // Atividade 3 - contador de caracteres
-const texto = document.getElementById('texto');
-const contador = document.getElementById('contador');
+var texto = document.querySelector('#texto');
+var contador = document.querySelector('#contador');
 
-texto.addEventListener('input', () => {
+texto.addEventListener('input', function() {
     contador.textContent = 'Caracteres digitados: ' + texto.value.length;
 });
 
 // Atividade 4 - contador de cliques
-const btnClique = document.getElementById('btnClique');
-const contCliques = document.getElementById('contCliques');
-let cliqueCount = 0;
+var btnClique = document.querySelector('#btnClique');
+var contCliques = document.querySelector('#contCliques');
+var cliqueCount = 0;
 
-btnClique.addEventListener('click', () => {
-    cliqueCount++;
+btnClique.addEventListener('click', function() {
+    cliqueCount = cliqueCount + 1;
     contCliques.textContent = 'Cliques: ' + cliqueCount;
 });
 
 // Atividade 5/6 - lista dinâmica e remoção
-const itemInput = document.getElementById('itemInput');
-const btnAdd = document.getElementById('btnAdd');
-const lista = document.getElementById('lista');
+var itemInput = document.querySelector('#itemInput');
+var btnAdd = document.querySelector('#btnAdd');
+var lista = document.querySelector('#lista');
 
-btnAdd.addEventListener('click', () => {
-    const val = itemInput.value.trim();
+btnAdd.addEventListener('click', function() {
+    var val = itemInput.value.trim();
     if (val === '') return;
-    const li = document.createElement('li');
+    var li = document.createElement('li');
     li.textContent = val;
     lista.appendChild(li);
     itemInput.value = '';
 });
 
-lista.addEventListener('click', (e) => {
+lista.addEventListener('click', function(e) {
     if (e.target.tagName === 'LI') {
         if (confirm('Remover este item?')) {
             e.target.remove();
@@ -60,11 +64,11 @@ lista.addEventListener('click', (e) => {
 });
 
 // Desafio Hard - validação de campo
-const nomeInput = document.getElementById('nomeInput');
-const btnEnviarNome = document.getElementById('btnEnviarNome');
-const msgNome = document.getElementById('msgNome');
+var nomeInput = document.querySelector('#nomeInput');
+var btnEnviarNome = document.querySelector('#btnEnviarNome');
+var msgNome = document.querySelector('#msgNome');
 
-btnEnviarNome.addEventListener('click', () => {
+btnEnviarNome.addEventListener('click', function() {
     if (nomeInput.value.trim() === '') {
         msgNome.textContent = 'O campo nome é obrigatório';
         msgNome.style.color = 'red';
