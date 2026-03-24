@@ -77,3 +77,41 @@ btnEnviarNome.addEventListener('click', function() {
         msgNome.style.color = 'green';
     }
 });
+
+// atividade 8 - validação simples de email
+let emailInput = document.querySelector('#emailInput');
+let btnEnviarEmail = document.querySelector('#btnEnviarEmail');
+let msgEmail = document.querySelector('#msgEmail');
+
+btnEnviarEmail.addEventListener('click', function() {
+    let email = emailInput.value.trim();
+    if (email === '') {
+        msgEmail.textContent = 'O campo email é obrigatório';
+        msgEmail.style.color = 'red';
+    }
+    else if (!email.includes('@') || !email.includes('.')) {
+        msgEmail.textContent = 'Email inválido';
+        msgEmail.style.color = 'red';
+    }   else {
+        msgEmail.textContent = 'Email enviado com sucesso!';
+        msgEmail.style.color = 'green';
+    }
+});
+
+// atividade 9 - verificação simples de força de senha
+let senhaInput = document.querySelector('#senhaInput');
+let btnEnviarSenha = document.querySelector('#btnEnviarSenha');
+let msgSenha = document.querySelector('#msgSenha');
+btnEnviarSenha.addEventListener('click', function() {
+    let senha = senhaInput.value;
+    if (senha.length < 6) {
+        msgSenha.textContent = 'Senha fraca';
+        msgSenha.style.color = 'red';
+    } else if (senha.length < 10) {
+        msgSenha.textContent = 'Senha média';
+        msgSenha.style.color = 'orange';
+    } else {
+        msgSenha.textContent = 'Senha forte';
+        msgSenha.style.color = 'green';
+    }
+});
